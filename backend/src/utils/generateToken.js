@@ -6,8 +6,8 @@ const generateToken = (res, userId) => {
 
   const cookieOptions = {
     httpOnly: true,
-    secure: NODE_ENV === 'production', // set true on production (HTTPS)
-    sameSite: 'lax',
+    secure: true, // set true on production (HTTPS)
+    sameSite: 'None',
     maxAge: (() => {
       if (typeof JWT_EXPIRES_IN === 'string' && JWT_EXPIRES_IN.endsWith('d')) {
         const days = parseInt(JWT_EXPIRES_IN.slice(0, -1), 10) || 7;
